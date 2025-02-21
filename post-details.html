@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Details</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="container">
+                <a class="logo" href="index.html" style="cursor: pointer; text-decoration: none; padding:15px"><i class="fa-solid fa-briefcase"></i> Job Portal</a>
+                <ul class="nav-links">
+                    <li><a href="index.html"><i class="fa-solid fa-house"></i> Home</a></li>
+                    <li><a><i class="fa-solid fa-sign-out"></i> Logout</a></li>
+                    <li><a href="profile.html"><i class="fa-solid fa-user"></i> User Profile</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <section class="job-details">
+        <div class="container">
+        </div>
+    </section>
+
+    <footer>
+        <div class="container" style="padding: 30px;">
+            <p>&copy; 2025 Job Portal. All rights reserved.</p>
+        </div>
+    </footer>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const jobDetailsContainer = document.querySelector('.job-details .container');
+            const jobId = new URLSearchParams(window.location.search).get("id");
+        
+            if (jobId) {
+                fetchJobDetails(jobId);
+            } else {
+                console.error("Job ID not found in URL.");
+                showMessage("Job ID not found. Please try again.", "error");
+            }
+        
+            async function fetchJobDetails(jobId) {
+                try {
+                    const response = await fetch(`http://127.0.0.1:8000/api/job_posts/${jobId}/`);
+                    if (response.ok) {
+                        const jobData = await response.json();
+                        displayJobDetails(jobData);
+                    } else {
+                        const errorData = await response.json();
+                        console.error("Error loading job details:", response.status, errorData);
+                        showMessage(errorData.error || "Error loading job details. Please try again.", "error");
+                    }
+                } catch (error) {
+                    console.error("Error loading job details:", error);
+                    showMessage("An error occurred while loading job details.", "error");
+                }
+            }
+        
+            function displayJobDetails(jobData) {
+                jobDetailsContainer.innerHTML = `
+                    <h2>${jobData.job_title}</h2>
+                    <p><strong>Location:</strong> ${jobData.location}</p>
+                    <p><strong>Company:</strong> ${jobData.company_name}</p>
+                    <p><strong>Job Description:</strong> ${jobData.details.replace(/\n/g, "<br>")}</p>
+                    <p><strong>Tags:</strong> ${jobData.tags}</p>
+                `;
+            }
+        
+            function showMessage(message, type) {
+                const messageContainer = document.createElement('div');
+                messageContainer.textContent = message;
+                messageContainer.classList.add(type === 'error' ? 'error-message' : 'success-message');
+                document.body.appendChild(messageContainer);
+                setTimeout(() => messageContainer.remove(), 3000);
+            }
+        });        
+    </script>
+    <script src="logout.js"></script>
+</body>
+</html>

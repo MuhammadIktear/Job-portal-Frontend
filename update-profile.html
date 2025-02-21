@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Profile</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="container">
+                <a class="logo" href="index.html" style="cursor: pointer; text-decoration: none; padding:15px"><i class="fa-solid fa-briefcase"></i> Job Portal</a>
+                <ul class="nav-links">
+                    <li><a href="index.html"><i class="fa-solid fa-house"></i> Home</a></li>
+                    <li><a><i class="fa-solid fa-sign-out"></i> Logout</a></li>
+                    <li><a href="profile.html"><i class="fa-solid fa-user"></i> User Profile</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <section class="update-profile">
+        <div class="container">
+            <h2><i class="fa-solid fa-edit"></i> Update Profile</h2>
+            <form id="update-profile-form">
+                <label for="name">Full Name:</label>
+                <input type="text" id="name" name="name" required>
+                <div id="name-error" class="error-message"></div>
+
+                <label for="education">Education:</label>
+                <input type="text" id="education" name="education">
+
+                <label for="bio">Bio:</label>
+                <textarea id="bio" name="bio" rows="4"></textarea>
+
+                <label for="experience">Experience:</label>
+                <textarea id="experience" name="experience" rows="4"></textarea>
+                
+                <button type="submit" class="btn"><i class="fa-solid fa-save"></i> Save Changes</button>
+            </form>
+
+            <h3>Upload Resume</h3>
+            <form id="resume-upload-form">
+                <label for="resume">Upload your resume and extract skills:</label>
+                <input type="file" id="resume-upload" accept=".pdf">  
+                <button type="button" id="upload-button">Upload & Extract Skills</button> 
+                <div id="resume-upload-message" class="error-message"></div>
+                <label for="skills">Skills:</label>
+                <textarea id="skills" name="skills" rows="4"></textarea>
+                <button type="button" id="save-skills-button">Save Skills</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container" style="padding: 30px;">
+            <p>&copy; 2025 Job Portal. All rights reserved.</p>
+        </div>
+    </footer>
+    <script src="upload_user_resume.js"></script>
+    <script src="update_profile.js"></script>
+    <script src="logout.js"></script>
+</body>
+</html>

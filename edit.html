@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Job Post</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="container">
+                <a class="logo" href="index.html" style="cursor: pointer; text-decoration: none; padding:15px"><i class="fa-solid fa-briefcase"></i> Job Portal</a>
+                <ul class="nav-links">
+                    <li><a href="index.html"><i class="fa-solid fa-house"></i> Home</a></li>
+                    <li><a><i class="fa-solid fa-sign-out"></i> Logout</a></li>
+                    <li><a href="profile.html"><i class="fa-solid fa-user"></i> User Profile</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <section class="job-edit">
+        <div class="container">
+            <h2><i class="fa-solid fa-edit"></i> Edit Job Post</h2>
+            <form id="edit-job-form">
+
+                <!-- New Fields Added -->
+                <label for="country">Country:</label>
+                <select id="country" name="country" required>
+                    <option value="">Select Country</option>
+                    <option value="bangladesh" selected>Bangladesh</option>
+                    <option value="usa">USA</option>
+                    <option value="Canda">Canada</option>
+                </select>
+
+                <label for="industry">Industry:</label>
+                <select id="industry" name="industry" required>
+                    <option value="tech" selected>Tech</option>
+                    <option value="finance">Finance</option>
+                    <option value="healthcare">Healthcare</option>
+                    <option value="education">Education</option>
+                    <option value="manufacturing">Manufacturing</option>
+                </select>
+
+                <label for="experience-level">Experience Level:</label>
+                <select id="experience-level" name="experience-level" required>
+                    <option value="entry" selected>Entry Level</option>
+                    <option value="mid">Mid Level</option>
+                    <option value="senior">Senior Level</option>
+                    <option value="executive">Executive</option>
+                </select>
+
+                <label for="job-function">Job Function:</label>
+                <select id="job-function" name="job-function" required>
+                    <option value="engineering" selected>Engineering</option>
+                    <option value="marketing">Marketing</option>
+                    <option value="sales">Sales</option>
+                    <option value="design">Design</option>
+                    <option value="product">Product</option>
+                    <option value="hr">Human Resources</option>
+                </select>
+
+                <label for="job-title">Job Title:</label>
+                <input type="text" id="job-title" name="job-title" value="Software Engineer" required>
+
+                <label for="company">Company Name:</label>
+                <input type="text" id="company" name="company" value="Tech Solutions" required>
+
+                <label for="location">Location:</label>
+                <input type="text" id="location" name="location" value="New York, NY" required>
+                                
+                <label for="details">Details:</label>
+                <textarea id="details" name="details" rows="4" placeholder="Post details" required>Develop and maintain software solutions.</textarea>
+
+                <button type="submit" class="btn"><i class="fa-solid fa-save"></i> Save Changes</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container" style="padding: 30px;">
+            <p>&copy; 2025 Job Portal. All rights reserved.</p>
+        </div>
+    </footer>
+    <script src="edit_post.js"></script>
+    <script src="logout.js"></script>
+</body>
+</html>
