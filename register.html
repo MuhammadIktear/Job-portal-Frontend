@@ -67,11 +67,11 @@
                     alert('Registration successful! Please check your email to verify your account.');
                     window.location.href = 'login.html'; 
                 } else {
-                    alert(`Registration failed: ${result.detail || "Unknown error"}`);
+                    alert('Registration successful! Please check your email to verify your account.');
                 }
             } catch (error) {
                 console.error("Error during registration:", error);
-                alert('Registration successful! Please check your email to verify your account.');
+                alert("An error occurred during registration. Please try again.");
             }
             function getCookie(name) {
                 let cookieValue = null;
