@@ -20,12 +20,15 @@ document.addEventListener('DOMContentLoaded', () => {
             const profileData = await profileResponse.json();
             updateProfileInfo(profileData);
 
-            const postsResponse = await fetch(`https://job-portal-backend-f1wq.onrender.com/api/job_posts/?user=${userId}`); 
+            const postsResponse = await fetch(`https://job-portal-backend-f1wq.onrender.com/api/job_posts/`);
             if (!postsResponse.ok) {
                 throw new Error(`HTTP error! status: ${postsResponse.status}`);
             }
             const postsData = await postsResponse.json();
-            displayUserPosts(postsData);
+
+            // **Filter posts to show only the logged-in user's posts**
+            const userPosts = postsData.filter(post => post.user === parseInt(userId));
+            displayUserPosts(userPosts);
 
         } catch (error) {
             console.error("Error fetching data:", error);
@@ -73,6 +76,7 @@ document.addEventListener('DOMContentLoaded', () => {
             deleteButton.addEventListener('click', handleDeletePost);
         });
     }
+
     async function handleDeletePost(event) {
         const button = event.target;
         const postId = button.dataset.postId;
@@ -90,7 +94,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     button.parentElement.remove();
                     showMessage("Post deleted successfully.", "success");
                 } else {
-                  const errorData = await response.json(); 
+                    const errorData = await response.json(); 
                     console.error("Error deleting post:", response.status, errorData);
                     showMessage(errorData.error || "Error deleting post. Please try again.", "error");
                 }
@@ -100,6 +104,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
     }
+
     function showMessage(message, type) {
         const messageContainer = document.createElement('div');
         messageContainer.textContent = message;
