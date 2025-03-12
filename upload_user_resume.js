@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         try {
-            const response = await fetch(`http://127.0.0.1:8000/api/user_profile/${userId}/`);
+            const response = await fetch(`https://job-portal-backend-f1wq.onrender.com/api/user_profile/${userId}/`);
             if (response.ok) {
                 const data = await response.json();
                 if (data.tags) {
@@ -64,7 +64,7 @@ document.addEventListener('DOMContentLoaded', () => {
             formData.append('resume', file);
             formData.append('id', userId);
 
-            const response = await fetch('http://127.0.0.1:8000/api/extract_tags/', {
+            const response = await fetch('https://job-portal-backend-f1wq.onrender.com/api/extract_tags/', {
                 method: 'POST',
                 body: formData
             });
@@ -107,7 +107,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         try {
-            const response = await fetch(`http://127.0.0.1:8000/api/user_profile/${userId}/`, {
+            const response = await fetch(`https://job-portal-backend-f1wq.onrender.com/api/user_profile/${userId}/`, {
                 method: 'PATCH',
                 headers: {
                     'Content-Type': 'application/json'

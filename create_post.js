@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', () => {
         console.log("Data being sent:", data); 
 
         try {
-            const response = await fetch('http://127.0.0.1:8000/api/job_posts/', { 
+            const response = await fetch('https://job-portal-backend-f1wq.onrender.com/api/job_posts/', { 
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

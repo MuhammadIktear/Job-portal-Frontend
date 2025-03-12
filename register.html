@@ -51,7 +51,7 @@
             };
         
             try {
-                const response = await fetch('http://127.0.0.1:8000/api/register/', {  
+                const response = await fetch('https://job-portal-backend-f1wq.onrender.com/api/register/', {  
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
@@ -62,7 +62,8 @@
         
                 const result = await response.json();
         
-                if (response.ok) {
+                if (result.ok) {
+                    
                     alert('Registration successful! Please check your email to verify your account.');
                     window.location.href = 'login.html'; 
                 } else {

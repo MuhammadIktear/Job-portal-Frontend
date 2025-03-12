@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         try {
-            const response = await fetch(`http://127.0.0.1:8000/api/user_profile/${userId}/`);
+            const response = await fetch(`https://job-portal-backend-f1wq.onrender.com/api/user_profile/${userId}/`);
             if (response.ok) {
                 const data = await response.json();
                 nameInput.value = data.full_name || "";
@@ -55,7 +55,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         try {
-            const response = await fetch(`http://127.0.0.1:8000/api/user_profile/${userId}/`, {
+            const response = await fetch(`https://job-portal-backend-f1wq.onrender.com/api/user_profile/${userId}/`, {
                 method: 'PATCH', 
                 headers: {
                     'Content-Type': 'application/json'

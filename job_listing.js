@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     async function fetchRecommendedJobs(userId) {
         try {
-            const response = await fetch(`http://127.0.0.1:8000/api/suggest_jobs/`, {  // Your API endpoint
+            const response = await fetch(`https://job-portal-backend-f1wq.onrender.com/api/suggest_jobs/`, {  // Your API endpoint
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -92,7 +92,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     async function fetchFilteredJobs(userId, filters) {
-        let url = `http://127.0.0.1:8000/api/job_posts/?user=${userId}`; // Start with the base URL for user's jobs
+        let url = `https://job-portal-backend-f1wq.onrender.com/api/job_posts/?user=${userId}`; // Start with the base URL for user's jobs
 
         for (const key in filters) {
             if (filters[key]) {

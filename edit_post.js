@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     async function loadJobData(jobId) {
         try {
-            const response = await fetch(`http://127.0.0.1:8000/api/job_posts/${jobId}/`); // Correct URL
+            const response = await fetch(`https://job-portal-backend-f1wq.onrender.com/api/job_posts/${jobId}/`); // Correct URL
             if (response.ok) {
                 const jobData = await response.json();
                 populateForm(jobData); // Use a separate function
@@ -67,7 +67,7 @@ document.addEventListener('DOMContentLoaded', () => {
         };
 
         try {
-            const response = await fetch(`http://127.0.0.1:8000/api/job_posts/${jobId}/`, { // Correct URL
+            const response = await fetch(`https://job-portal-backend-f1wq.onrender.com/api/job_posts/${jobId}/`, { // Correct URL
                 method: 'PUT', // Or PATCH
                 headers: {
                     'Content-Type': 'application/json',

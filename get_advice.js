@@ -31,7 +31,7 @@ document.addEventListener('DOMContentLoaded', () => {
         displayMessage("processing...", 'bot-message'); 
 
         try {
-            const response = await fetch('http://127.0.0.1:8000/chatbot/', { 
+            const response = await fetch('https://job-portal-backend-f1wq.onrender.com/chatbot/', { 
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

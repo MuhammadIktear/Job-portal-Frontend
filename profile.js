@@ -13,14 +13,14 @@ document.addEventListener('DOMContentLoaded', () => {
                 return;
             }
 
-            const profileResponse = await fetch(`http://127.0.0.1:8000/api/user_profile/${userId}/`);
+            const profileResponse = await fetch(`https://job-portal-backend-f1wq.onrender.com/api/user_profile/${userId}/`);
             if (!profileResponse.ok) {
                 throw new Error(`HTTP error! status: ${profileResponse.status}`);
             }
             const profileData = await profileResponse.json();
             updateProfileInfo(profileData);
 
-            const postsResponse = await fetch(`http://127.0.0.1:8000/api/job_posts/?user=${userId}`); 
+            const postsResponse = await fetch(`https://job-portal-backend-f1wq.onrender.com/api/job_posts/?user=${userId}`); 
             if (!postsResponse.ok) {
                 throw new Error(`HTTP error! status: ${postsResponse.status}`);
             }
@@ -79,7 +79,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (confirm("Are you sure you want to delete this post?")) {
             try {
-                const response = await fetch(`http://127.0.0.1:8000/api/job_posts/${postId}/`, { 
+                const response = await fetch(`https://job-portal-backend-f1wq.onrender.com/api/job_posts/${postId}/`, { 
                     method: 'DELETE',
                     headers: {
                         'X-CSRFToken': getCookie('csrftoken')

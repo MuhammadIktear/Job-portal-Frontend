@@ -9,7 +9,7 @@ async function getAdvice() {
     }
 
     try {
-        const response = await fetch('http://127.0.0.1:8000/api/get_advice_from_tags/', {
+        const response = await fetch('https://job-portal-backend-f1wq.onrender.com/api/get_advice_from_tags/', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
